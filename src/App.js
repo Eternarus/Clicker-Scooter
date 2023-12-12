@@ -48,7 +48,7 @@ function App() {
         ...prevState,
         x: prevState.x + n,
         [k]: prevState[k] + 1,
-        number: prevState.number - n,
+        number: prevState.number - z,
         [cost]: prevState[cost] * 1.5
       }));
     };
