@@ -21,11 +21,12 @@
 
 .main {
     cursor: pointer;
-    margin: 10px 0 10px;
+    margin: 10px 0 10px; 
 }
 
 .main:active {
-    transform: scale(1.1);
+    transform: translateX(10px) rotate(10deg) translateY(5px);
+    filter: brightness(0) saturate(100%) invert(19%) sepia(58%) saturate(7481%) hue-rotate(357deg);
 }
 
 .main_up {

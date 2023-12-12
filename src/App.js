@@ -9,7 +9,7 @@ function App() {
     number: 0,
     num: 1,
     x: 0,
-    n1: 50,
+    n1: 0,
     n2: 150,
     n3: 300,
     n4: 500,
@@ -49,7 +49,7 @@ function App() {
         x: prevState.x + n,
         [k]: prevState[k] + 1,
         number: prevState.number - z,
-        [cost]: prevState[cost] * 1.5
+        [cost]: prevState[cost] * 1.1
       }));
     };
 
@@ -64,7 +64,7 @@ function App() {
             <div className="main_click">
               <span className="main_count" id="count">За 1 клик: {num.toFixed(0)}</span>
               <span className="main_count" id="count">За 1 секунду: {x.toFixed(0)}</span>
-              <MainClick handleClick = {() => handleClicke(0)} />
+              <MainClick handleClick = {() => handleClicke(0)} number = {number} />
               <CountStatistic x = {x} num = {num} number = {number} />
             </div>
           </div>
