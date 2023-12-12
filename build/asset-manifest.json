@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Eternarus/Clicker/static/css/main.78029ad0.css",
+    "main.js": "/Eternarus/Clicker/static/js/main.14cf0c89.js",
+    "static/media/samokat.png": "/Eternarus/Clicker/static/media/samokat.2755204019f3915e8c94.png",
+    "index.html": "/Eternarus/Clicker/index.html",
+    "main.78029ad0.css.map": "/Eternarus/Clicker/static/css/main.78029ad0.css.map",
+    "main.14cf0c89.js.map": "/Eternarus/Clicker/static/js/main.14cf0c89.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78029ad0.css",
+    "static/js/main.14cf0c89.js"
+  ]
+}
