@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Clicker/static/css/main.78029ad0.css",
+    "main.js": "/Clicker/static/js/main.6b8179a1.js",
+    "static/media/samokat.png": "/Clicker/static/media/samokat.2755204019f3915e8c94.png",
+    "index.html": "/Clicker/index.html",
+    "main.78029ad0.css.map": "/Clicker/static/css/main.78029ad0.css.map",
+    "main.6b8179a1.js.map": "/Clicker/static/js/main.6b8179a1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78029ad0.css",
+    "static/js/main.6b8179a1.js"
+  ]
+}
