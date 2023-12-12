@@ -1,0 +1,67 @@
+.main_click {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mains {
+    display: flex;
+    padding-top: 50px;
+}
+
+.main_count {
+    font-size: 50px;
+}
+
+.container {
+    width: min(100% - 30px, 1400px);
+    margin-inline: auto;
+}
+
+.main {
+    cursor: pointer;
+    margin: 10px 0 10px;
+}
+
+.main:active {
+    transform: scale(1.1);
+}
+
+.main_up {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-right: 50px;
+}
+
+.cl {
+    width: 200px;
+    height: 150px;
+}
+
+.main_inner {
+    display: flex;
+    justify-content: center;
+}
+
+.CountStatistic {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 750px){
+    .mains {
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+    }
+
+    .main_up {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding-right: 50px;
+    }
+}
