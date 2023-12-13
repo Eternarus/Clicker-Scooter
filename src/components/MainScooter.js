@@ -4,14 +4,22 @@ import orange from "../img/apelsin.png"
 
 
 
-function MainClick({ handleClick, number }) {
-  const slider = () => {
-    return number > 1000 ? orange : number > 500 ? tranformer : scooter;
+function MainClick({ handleClick, bossCount }) {
+  const image = getImage(bossCount);
+
+  function getImage(BossCount) {
+    if (bossCount === 2) {
+      return tranformer;
+    } else if (bossCount === 3) {
+      return orange;
+    }
+
+    return scooter;
   }
 
     return (
       <div className="main_click" onClick={handleClick}>
-        <img src={slider()} alt="" className="main" width="300px" />
+        <img src={image} alt="" className="main" />
       </div>
     );
   }

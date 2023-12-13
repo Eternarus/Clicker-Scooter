@@ -1,7 +1,8 @@
-const Button = ({ title, number, n, handleClick, k }) => {
 
+
+const Button = ({ title, number, n, handleClick, k, threshold, maxnumber, spellDuration }) => {
     return ( 
-        <button className="btn cl" disabled={number < n} onClick={handleClick}>{title}. Стоимость: {n.toFixed(0)} Число покупок: {k}</button>
+        <button className={`btn cl ${maxnumber > threshold ? 'active' : ''} ${number < n ? 'disabled' : '' || spellDuration == true ? 'disabled' : ''}`}  disabled={number < n} onClick={handleClick}>{title}<br/> Стоимость: {n.toFixed(0)}<br/> Число покупок: {k}</button>
      );
 }
 

@@ -1,3 +1,7 @@
+body {
+    background: url(./img/bg.png);
+}
+
 .main_click {
     display: flex;
     justify-content: center;
@@ -11,7 +15,8 @@
 }
 
 .main_count {
-    font-size: 50px;
+    font-size: 45px;
+    color: green;
 }
 
 .container {
@@ -22,6 +27,9 @@
 .main {
     cursor: pointer;
     margin: 10px 0 10px; 
+    max-width: 500px;
+    max-height: 500px;
+    image-rendering: optimizeQuality;
 }
 
 .main:active {
@@ -32,13 +40,11 @@
 .main_up {
     display: flex;
     flex-direction: column;
+    position: absolute;
     gap: 20px;
-    padding-right: 50px;
-}
-
-.cl {
-    width: 200px;
-    height: 150px;
+    padding-right: 68px;
+    margin-top: 195px;
+    right: 0;
 }
 
 .main_inner {
@@ -46,9 +52,59 @@
     justify-content: center;
 }
 
+.spells {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.spellBtn {
+    cursor: pointer;
+    background-color: #183d0d;
+    color: #fff;
+    height: 100px;
+    width: 100px;
+}
+
+.spellBtn:active {
+    transform: scale(1.08)
+}
+
+.btn {
+    display: none;
+    cursor: pointer;
+    background: url(./img/btn.png) no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    border: 2px green solid;
+    width: 355px;
+    height: 137px;
+    color: #183d0d;
+    font-weight: 600;
+    font-size: 20px;
+    transition: transform .1s ease-in-out;
+}
+
+.btn:active {
+    transform: scale(1.08)
+}
+
+.disabled {
+    filter: grayscale(100%) brightness(90%);
+    color: #3d3d3d;
+}
+
+.active {
+    display: block;
+}
+
 .CountStatistic {
     display: flex;
     flex-direction: column;
+}
+
+.red {
+    color: red;
 }
 
 @media (max-width: 750px){
