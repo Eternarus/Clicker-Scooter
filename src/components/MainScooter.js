@@ -7,7 +7,7 @@ import orange from "../img/apelsin.png"
 function MainClick({ handleClick, bossCount }) {
   const image = getImage(bossCount);
 
-  function getImage(BossCount) {
+  function getImage() {
     if (bossCount === 2) {
       return tranformer;
     } else if (bossCount === 3) {
