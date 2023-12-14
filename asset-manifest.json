@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/Clicker-Scooter/static/css/main.91ab94da.css",
-    "main.js": "/Clicker-Scooter/static/js/main.96e9ca0c.js",
+    "main.css": "/Clicker-Scooter/static/css/main.b06e8c0c.css",
+    "main.js": "/Clicker-Scooter/static/js/main.2e52df24.js",
+    "static/media/bg.png": "/Clicker-Scooter/static/media/bg.89be46ea5c4beb208322.png",
+    "static/media/btn.png": "/Clicker-Scooter/static/media/btn.0bacea25f222b4cc925e.png",
     "static/media/samokat.png": "/Clicker-Scooter/static/media/samokat.2755204019f3915e8c94.png",
     "static/media/apelsin.png": "/Clicker-Scooter/static/media/apelsin.f8bcbb730d5ef6dcea93.png",
     "static/media/300_-transformed.png": "/Clicker-Scooter/static/media/300_-transformed.56916e8f57bb9e9ac121.png",
     "index.html": "/Clicker-Scooter/index.html",
-    "main.91ab94da.css.map": "/Clicker-Scooter/static/css/main.91ab94da.css.map",
-    "main.96e9ca0c.js.map": "/Clicker-Scooter/static/js/main.96e9ca0c.js.map"
+    "main.b06e8c0c.css.map": "/Clicker-Scooter/static/css/main.b06e8c0c.css.map",
+    "main.2e52df24.js.map": "/Clicker-Scooter/static/js/main.2e52df24.js.map"
   },
   "entrypoints": [
-    "static/css/main.91ab94da.css",
-    "static/js/main.96e9ca0c.js"
+    "static/css/main.b06e8c0c.css",
+    "static/js/main.2e52df24.js"
   ]
 }
