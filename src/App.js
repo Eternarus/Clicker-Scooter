@@ -3,89 +3,67 @@ import React, { useState, useEffect } from 'react';
 import CountStatistic from "./components/CountStatistic";
 import Upgrades from "./components/Upgrades";
 import Boss from "./components/Boss";
+import Timer from "./components/Timer";
 import Spell from "./components/Spell";
+import BossDefeatLogic from "./components/BossDefeatLogic";
 
 function App() {
   const [bossCount, setBossCount] = useState(1);
-  const [HPCount, setHPCount] = useState(700);
+  const [HPCount, setHPCount] = useState(500);
   const [maxNumberReached, setMaxNumberReached] = useState(0);
   const [clonNum, setClonNum] = useState(0);
   const [spellDuration, setSpellDuration] = useState(false);
-  const [seconds, setSeconds] = useState(0);
 
   const [state, setState] = useState({
     number: 0,
-    num: 0.1,
-    HP: 300,
-    x: 0,
-    z: 0,
-    n1: 5,
-    n2: 20,
-    n3: 40,
-    n4: 80,
-    threshold1: -1,
-    threshold2: 10,
-    threshold3: 25,
-    threshold4: 70,
-    k1: 0,
-    k2: 0,
-    k3: 0,
-    k4: 0
+    num: 100,
+    HP: 150,
+    DPS: 0,
+    moneyPerSecond: 0,
+    upgradesData: {
+      n1: 5,
+      n2: 25,
+      n3: 30,
+      n4: 50,
+      threshold1: -1,
+      threshold2: 10,
+      threshold3: 25,
+      threshold4: 40,
+      k1: 0,
+      k2: 0,
+      k3: 0,
+      k4: 0
+    }
   });
 
-  const { number, num, z, x, n1, n2, n3, n4, k1, k2, k3, k4, HP, threshold1, threshold2, threshold3, threshold4 } = state;
+  const {
+    number,
+    num,
+    moneyPerSecond,
+    DPS,
+    HP,
+    upgradesData: { n1, n2, n3, n4 }
+  } = state;
   const [defense, setDefense] = useState(0);
   const shieldBosses = {
     1: 500,
     2: 1500
   };
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if(defense > 0){
-
-      }else {
-        setState(prevState => ({
-          ...prevState,
-          number: prevState.number + x,
-          HP: prevState.HP - x,
-          maxnumber: prevState.maxnumber + x
-        }));
-      }
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [x, defense]);
-
-  useEffect(() => {
-    const timer2 = setInterval(() => {
-      setState(prevState => ({
-        ...prevState,
-        number: prevState.number + z,
-        maxnumber: prevState.maxnumber + z
-      }));
-    }, 1000);
-
-    return () => clearInterval(timer2);
-  }, [z]);
-
-  useEffect(() => {
-    if (number > maxNumberReached) {
-      setMaxNumberReached(number);
-    }
-  }, [number]);
-
-  const handleClicks = (n, z, cost, k, p) => {
+  const handleClicks = (n, moneyPerSecond, cost, k, p) => {
     setState(prevState => ({
       ...prevState,
-      x: prevState.x + n,
-      z: prevState.z + p,
-      [k]: prevState[k] + 1,
-      number: prevState.number - z,
-      [cost]: prevState[cost] * 1.1
+      DPS: prevState.DPS + n,
+      moneyPerSecond: prevState.moneyPerSecond + p,
+      upgradesData: {
+        ...prevState.upgradesData,
+        [k]: prevState.upgradesData[k] + 1,
+        [cost]: prevState.upgradesData[cost] * 1.5
+      },
+      number: prevState.number - moneyPerSecond,
     }));
   };
-
+  
   const handleClicke = (index) => {
 
     const handleClickss = [
@@ -95,7 +73,7 @@ function App() {
         } else {
           setState(prevState => ({
             ...prevState,
-            number: prevState.number + num,
+            number: prevState.number + num + clonNum,
             HP: Math.max(prevState.HP - num - clonNum, 0),
             defense: 0
           }));
@@ -103,97 +81,50 @@ function App() {
       },
       () => {
         const n = 0.1;
-        handleClicks(0, n1, "n1", "k1", 0);
-        setState(prevState => ({ ...prevState, num: num + n }));
+        handleClicks(0, state.upgradesData.n1, "n1", "k1", 0);
+        setState(prevState => ({
+          ...prevState,
+          num: num + n
+        }));
       },
-      () => handleClicks(0, n2, "n2", "k2", 1),
-      () => handleClicks(2, n3, "n3", "k3", 0),
-      () => handleClicks(3.5, n4, "n4", "k4", 0)
+      () => handleClicks(0, n2, "n2", "k2", 0.5),
+      () => handleClicks(1, n3, "n3", "k3", 0),
+      () => handleClicks(2.5, n4, "n4", "k4", 0)
     ];
 
     handleClickss[index]();
   };
 
-  useEffect(() => {
-    if (HP <= 0) {
-      setHPCount(prevCount => prevCount * 4);
-      setBossCount(prevCount => prevCount + 1);
-      setState(prevState => ({
-        ...prevState,
-        number: prevState.number + bossCount * 500
-      }));
-
-      if (shieldBosses.hasOwnProperty(bossCount)) {
-        const shieldValue = shieldBosses[bossCount];
-        setDefense(prevDefense => prevDefense + shieldValue);
-      }
-
-      setState(prevState => ({ ...prevState, HP: HPCount }));
+  function formatNumber(number) {
+    if (number < 1000) {
+      return number.toFixed(1);
+    } else if (number < 1000000) {
+      return (number / 1000).toFixed(1) + "k";
+    } else if (number < 1000000000) {
+      return (number / 1000000).toFixed(1) + "m";
+    } else {
+      return (number / 1000000000).toFixed(1) + "b";
     }
-  }, [HP, bossCount, shieldBosses]);
+  }
 
-  const [kdDuration, setKdDuration] = useState(false);
-
-  const handleSpellButtonClick = () => {
-    setClonNum(num);
-    setSpellDuration(true);
-    setSeconds(10);
-  };
-
-  const spellOff = () => {
-    setSpellDuration(false);
-    setKdDuration(true);
-    setClonNum(0);
-    setSeconds(180);
-  };
-
-  const spellOn = () => {
-    setKdDuration(false);
-  };
-
-  useEffect(() => {
-    if (spellDuration) {
-      setTimeout(() => {
-        spellOff();
-      }, 10000);
-    }
-    if (kdDuration) {
-      setTimeout(() => {
-        spellOn();
-      }, 180000);
-    }
-  }, [spellDuration, kdDuration]);
-
-  useEffect(() => {
-    let countdown;
-
-    if (spellDuration || kdDuration) {
-      countdown = setInterval(() => {
-        setSeconds(prevSeconds => prevSeconds - 1);
-      }, 1000);
-    }
-
-    if (seconds < 0) {
-      clearInterval(countdown);
-    }
-
-    return () => clearInterval(countdown);
-  }, [spellDuration]);
+  const gg = formatNumber(number)
 
   return (
     <div>
       <div className="mains">
-          <CountStatistic x={x} num={num} number={number} maxNumberReached={maxNumberReached} clonNum={clonNum} bossCount={bossCount} z={z}/>
+        <CountStatistic DPS={DPS} num={num} number={gg} maxNumberReached={maxNumberReached} clonNum={clonNum} bossCount={bossCount} moneyPerSecond={moneyPerSecond} setMaxNumberReached={setMaxNumberReached} />
         <div className="main_inner">
-          <div className="spells">
-           <Spell handleSpellButtonClick={handleSpellButtonClick} seconds={seconds} kdDuration={kdDuration} />
-          </div>
-          <Boss handleClicks={() => handleClicke(0)} bossCount={bossCount} HP1={HP} defense={defense} number={number} />
+          <Spell setSpellDuration={setSpellDuration} spellDuration={spellDuration} num={num} setClonNum={setClonNum} />
+          <Boss handleClicks={() => handleClicke(0)} bossCount={bossCount} HP1={HP} defense={defense} />
         </div>
-        <Upgrades number={number} n1={n1} n2={n2} n3={n3} n4={n4} k1={k1} k2={k2} k3={k3} k4={k4} threshold1={threshold1} threshold2={threshold2} threshold3={threshold3} threshold4={threshold4} maxNumberReached={maxNumberReached} handleClicke={handleClicke} spellDuration={spellDuration} />
+        <Upgrades number={gg} upgradesData={state.upgradesData} maxNumberReached={maxNumberReached} handleClicke={handleClicke} spellDuration={spellDuration} />
+      </div>
+      <div>
+        <Timer DPS={DPS} moneyPerSecond={moneyPerSecond} defense={defense} setState={setState} />
+        <BossDefeatLogic HPCount={HPCount} HP={HP} setHPCount={setHPCount} bossCount={bossCount} setBossCount={setBossCount} setState={setState} setDefense={setDefense} shieldBosses={shieldBosses} />
       </div>
     </div>
-);
+  );
 }
 
 export default App;
