@@ -1,23 +1,14 @@
-import scooter from "../img/samokat.png";
-import tranformer from "../img/300_-transformed.png";
-import orange from "../img/apelsin.png"
+import MainClick from "./MainScooter";
 
-function Boss({ handleClicks, bossCount, HP1, defense }) {
-  const image = getImage(bossCount);
-  
-  function getImage() {
-    if (bossCount === 2) {
-      return tranformer;
-    } else if (bossCount === 3) {
-      return orange;
-    }
-
-    return scooter;
-  }
+function Boss({ handleClicks, bossCount, HP1, defense, number }) {
+  const handleClick = () => {
+    const result = handleClicks();
+    return result;
+  };
 
   return (
     <div className="main_click">
-      <img src={image} alt="" className="main" onClick={handleClicks} />
+      <MainClick handleClick={handleClick} number={number} bossCount={bossCount} />
       <span className="main_count">HP: {HP1.toFixed(1)} Защита: {defense.toFixed(1)}</span>
     </div>
   );

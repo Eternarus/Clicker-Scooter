@@ -1,19 +1,17 @@
 {
   "files": {
-    "main.css": "./static/css/main.67fb4347.css",
-    "main.js": "./static/js/main.58c1d9a1.js",
-    "static/media/bg3.png": "./static/media/bg3.42d11fc5c24a931fccc2.png",
-    "static/media/bg2.png": "./static/media/bg2.7f79c91b98b38ab08841.png",
-    "static/media/apelsin.png": "./static/media/apelsin.f8bcbb730d5ef6dcea93.png",
-    "static/media/samokat.png": "./static/media/samokat.5dde6632a75a066f358f.png",
-    "static/media/300_-transformed.png": "./static/media/300_-transformed.56916e8f57bb9e9ac121.png",
-    "static/media/btn.png": "./static/media/btn.7482f8e2101ffcd5136f.png",
-    "index.html": "./index.html",
-    "main.67fb4347.css.map": "./static/css/main.67fb4347.css.map",
-    "main.58c1d9a1.js.map": "./static/js/main.58c1d9a1.js.map"
+    "main.css": "/Clicker-Scooter/static/css/main.ecb6f080.css",
+    "main.js": "/Clicker-Scooter/static/js/main.6b88fa2b.js",
+    "static/media/btn.png": "/Clicker-Scooter/static/media/btn.0bacea25f222b4cc925e.png",
+    "static/media/apelsin.png": "/Clicker-Scooter/static/media/apelsin.f8bcbb730d5ef6dcea93.png",
+    "static/media/samokat.png": "/Clicker-Scooter/static/media/samokat.5dde6632a75a066f358f.png",
+    "static/media/300_-transformed.png": "/Clicker-Scooter/static/media/300_-transformed.56916e8f57bb9e9ac121.png",
+    "index.html": "/Clicker-Scooter/index.html",
+    "main.ecb6f080.css.map": "/Clicker-Scooter/static/css/main.ecb6f080.css.map",
+    "main.6b88fa2b.js.map": "/Clicker-Scooter/static/js/main.6b88fa2b.js.map"
   },
   "entrypoints": [
-    "static/css/main.67fb4347.css",
-    "static/js/main.58c1d9a1.js"
+    "static/css/main.ecb6f080.css",
+    "static/js/main.6b88fa2b.js"
   ]
 }
